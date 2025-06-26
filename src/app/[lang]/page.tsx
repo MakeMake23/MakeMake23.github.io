@@ -57,23 +57,26 @@ export default async function Page({ params }: { params: { lang: string } }) {
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">{dict.sections.resume}</h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/CV_Andy_Ledesma_Garcia_EN.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-center"
-            >
-              {dict.resume.english}
-            </Link>
-            <Link
-              href="/CV_Andy_Ledesma_Garcia_ES.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-center"
-            >
-              {dict.resume.spanish}
-            </Link>
+          <div className="flex justify-center">
+            {lang === 'en' ? (
+              <Link
+                href="/cv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-center"
+              >
+                {dict.resume.english}
+              </Link>
+            ) : (
+              <Link
+                href="/es/cv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-center"
+              >
+                {dict.resume.spanish}
+              </Link>
+            )}
           </div>
         </section>
 
