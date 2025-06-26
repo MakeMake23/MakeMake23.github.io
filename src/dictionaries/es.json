@@ -1,0 +1,30 @@
+{
+  "title": "Andy Ledesma García",
+  "subtitle": "CTO & Científico de la Computación & Desarrollador Blockchain & Desarrollador Back-end",
+  "sections": {
+    "resume": "Currículum Vitae",
+    "contact": "Contáctame",
+    "profiles": "Perfiles Profesionales"
+  },
+  "resume": {
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "contact": {
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "email": "Correo Electrónico"
+  },
+  "profiles": {
+    "linkedin": "LinkedIn",
+    "linkedin_desc": "Red Profesional",
+    "github": "GitHub",
+    "github_desc": "Repositorio de Código"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados"
+  },
+  "language": {
+    "switch": "Cambiar a Inglés"
+  }
+}

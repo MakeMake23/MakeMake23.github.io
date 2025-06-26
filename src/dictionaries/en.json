@@ -1,0 +1,30 @@
+{
+  "title": "Andy Ledesma García",
+  "subtitle": "CTO & Computer Scientist & Blockchain Developer & Back-end Developer",
+  "sections": {
+    "resume": "Résumé (CV)",
+    "contact": "Contact Me",
+    "profiles": "Professional Profiles"
+  },
+  "resume": {
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "contact": {
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "email": "Email"
+  },
+  "profiles": {
+    "linkedin": "LinkedIn",
+    "linkedin_desc": "Professional Network",
+    "github": "GitHub",
+    "github_desc": "Code Repository"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  },
+  "language": {
+    "switch": "Switch to Spanish"
+  }
+}
