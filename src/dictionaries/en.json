@@ -3,12 +3,18 @@
   "subtitle": "CTO & Computer Scientist & Blockchain Developer & Back-end Developer",
   "sections": {
     "resume": "Résumé (CV)",
-    "contact": "Contact Me",
+    "contact": "Links",
     "profiles": "Professional Profiles"
   },
   "resume": {
-    "english": "English",
-    "spanish": "Spanish"
+    "english": {
+      "title": "English CV",
+      "action": "Download"
+    },
+    "spanish": {
+      "title": "Spanish CV",
+      "action": "Download"
+    }
   },
   "contact": {
     "whatsapp": "WhatsApp",
@@ -20,6 +26,12 @@
     "linkedin_desc": "Professional Network",
     "github": "GitHub",
     "github_desc": "Code Repository"
+  },
+  "stats": {
+    "experience": "Years of Experience",
+    "loc": "Lines of Code",
+    "projects": "Projects",
+    "organizations": "Organizations"
   },
   "footer": {
     "rights": "All rights reserved"

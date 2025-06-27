@@ -11,8 +11,14 @@ export type Dictionary = {
     profiles: string;
   };
   resume: {
-    english: string;
-    spanish: string;
+    english: {
+      title: string;
+      action: string;
+    };
+    spanish: {
+      title: string;
+      action: string;
+    };
   };
   contact: {
     whatsapp: string;
@@ -24,6 +30,12 @@ export type Dictionary = {
     linkedin_desc: string;
     github: string;
     github_desc: string;
+  };
+  stats: {
+    experience: string;
+    loc: string;
+    projects: string;
+    organizations: string;
   };
   footer: {
     rights: string;
