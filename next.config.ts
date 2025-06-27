@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/cv',
-        destination: '/en/cv',
+        source: "/cv",
+        destination: "/en/cv",
       },
     ];
   },
@@ -16,4 +16,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
