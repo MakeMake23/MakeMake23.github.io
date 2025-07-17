@@ -33,6 +33,16 @@
     "projects": "Projects",
     "organizations": "Organizations"
   },
+  "teams": {
+    "tokenfleet": {
+      "name": "TokenFleet",
+      "description": "RWA tokenization platform"
+    },
+    "fusyfox": {
+      "name": "FusyFox",
+      "description": "Innovative gaming experience"
+    }
+  },
   "footer": {
     "rights": "All rights reserved"
   },

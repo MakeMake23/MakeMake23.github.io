@@ -1,7 +1,5 @@
-// Define the supported locales
 export type Locale = 'en' | 'es';
 
-// Define the dictionary type
 export type Dictionary = {
   title: string;
   subtitle: string;
@@ -37,6 +35,16 @@ export type Dictionary = {
     projects: string;
     organizations: string;
   };
+  teams: {
+    tokenfleet: {
+      name: string;
+      description: string;
+    };
+    fusyfox: {
+      name: string;
+      description: string;
+    };
+  };
   footer: {
     rights: string;
   };
@@ -45,11 +53,9 @@ export type Dictionary = {
   };
 };
 
-// Import dictionaries
 import en from './en.json';
 import es from './es.json';
 
-// Create a dictionary object with all translations
 const dictionaries: Record<Locale, Dictionary> = {
   en,
   es,
