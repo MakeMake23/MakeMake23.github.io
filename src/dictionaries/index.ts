@@ -35,6 +35,12 @@ export type Dictionary = {
     projects: string;
     organizations: string;
   };
+  blockchain: {
+    title: string;
+    blocks: {
+      data: string;
+    }[];
+  };
   teams: {
     tokenfleet: {
       name: string;

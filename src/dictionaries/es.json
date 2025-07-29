@@ -33,6 +33,46 @@
     "projects": "Proyectos",
     "organizations": "Organizaciones"
   },
+  "blockchain": {
+    "title": "Mi vida hasta ahora",
+    "blocks": [
+      {
+        "data": "Nacido el 9 de septiembre de 1999 en Cuba en el seno de una familia humilde. Mi familia me enseñó lecciones útiles y el amor por la ciencia."
+      },
+      {
+        "data": "Mi papá me enseñó a jugar ajedrez a los 4 años y a los 11 ya era el mejor de mi área. Gracias a eso desarrollé un gran poder de abstracción desde edades tempranas. PD: él me ganaba entonces, ahora gano yo 😎."
+      },
+      {
+        "data": "En septiembre de 2014, inicié mis estudios en el <a href=\"https://www.linkedin.com/school/ipvce-lenin/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">Instituto de Ciencias Exactas Vladimir I. Lenin</a>, donde me enfoqué en las ciencias y aprendí a programar en C++."
+      },
+      {
+        "data": "Comencé a competir en concursos de programación a los 15 años, dominando C++ para resolver problemas con algoritmos avanzados y estructuras de datos, y me clasifiqué entre los 11 mejores a nivel nacional en mi categoría en 2016.",
+        "caption": "con <a href=\"https://www.linkedin.com/in/enrique-mart%C3%ADnez-gonz%C3%A1lez-948b19214/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">Enrique</a> y <a href=\"https://www.linkedin.com/in/davidmga44/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">David</a>"
+      },
+      {
+        "data": "En diciembre de 2022, me gradué en Ciencias de la Computación en la <a href=\"https://www.linkedin.com/school/universidad-de-la-habana/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">Universidad de La Habana</a>, quedando 6º de mi promoción. Asistí a cursos optativos de blockchain y desarrollé un sistema de votación descentralizado en Quorum (un fork de Ethereum) como tesis."
+      },
+      {
+        "data": "En enero de 2023, me uní al equipo de Fusyona, trabajando durante más de dos años en protocolos DeFi, SciFi y GameFi, colaborando estrechamente con LayerZero, SKALE, Taraxa y Sei."
+      },
+      {
+        "data": "De febrero de 2023 a septiembre de 2024, impartí los programas de Licenciatura en Ciencias de la Computación y Ciencia de Datos en la <a href=\"https://www.linkedin.com/school/universidad-de-la-habana/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">Universidad de La Habana</a>, ofreciendo cursos avanzados de Sistemas de Bases de Datos y Arquitectura de Computadoras a aproximadamente 150 estudiantes, y mentoreé un proyecto de investigación en blockchain, supervisando el desarrollo de tesis."
+      },
+      {
+        "data": "El 12 de diciembre de 2024, me mudé a Dubái para llevar mi carrera al siguiente nivel, aprovechando la infraestructura y los recursos de primer mundo para ser más eficiente en el trabajo."
+      },
+      {
+        "data": "A finales de diciembre de 2024, me uní al equipo de <a href=\"https://tokenfleet.io\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">TokenFleet</a>, trabajando tanto en backend como en frontend y desarrollando contratos inteligentes para impulsar el protocolo RWA de TokenFleet."
+      },
+      {
+        "data": "Durante la semana de Token2049 (27 de abril – 4 de mayo de 2025), presenté los proyectos de TokenFleet a inversionistas, mercadólogos e ingenieros, forjando conexiones valiosas y despertando entusiasmo."
+      },
+      {
+        "data": "Como voluntario en EthDubai 2025, formé parte del staff que recibió a cada inversionista, conferencista y asistente en general. Entregamos identificaciones e indicaciones para una estancia sin contratiempos. También mantuvimos la seguridad del lugar y resolvimos cualquier problema que amenazara el buen desarrollo de conferencias y charlas."
+      }
+    ],
+    "miningMessage": "...y sigo minando..."
+  },
   "teams": {
     "tokenfleet": {
       "name": "TokenFleet",

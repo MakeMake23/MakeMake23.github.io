@@ -33,6 +33,46 @@
     "projects": "Projects",
     "organizations": "Organizations"
   },
+  "blockchain": {
+    "title": "My life so far",
+    "blocks": [
+      {
+        "data": "Born on September 9th, 1999 in Cuba within a humble family. My family taught me useful lessons and the love for science."
+      },
+      {
+        "data": "My dad taught me chess when I was 4 years old, and by 11, I was already the best in my area. Thanks to this, I developed strong abstract thinking from an early age. PS: He used to beat me back then, now I win 😎."
+      },
+      {
+        "data": "In September 2014, I began my studies at the <a href=\"https://www.linkedin.com/school/ipvce-lenin/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">Exact Sciences Institute Vladimir I. Lenin</a>, where I focused on science and learned programming in C++."
+      },
+      {
+        "data": "I started competing in programming contests at age 15, mastering C++ to tackle advanced algorithms and data structures, and ranked in the top 11 nationally for my age in 2016.",
+        "caption": "with <a href=\"https://www.linkedin.com/in/enrique-mart%C3%ADnez-gonz%C3%A1lez-948b19214/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">Enrique</a> and <a href=\"https://www.linkedin.com/in/davidmga44/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">David</a>"
+      },
+      {
+        "data": "In December 2022, I graduated with a degree in Computer Science from the <a href=\"https://www.linkedin.com/school/universidad-de-la-habana/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">University of Havana</a>, ranking 6th in my class. I took optional blockchain courses and developed a decentralized voting system on Quorum (an Ethereum fork) as my thesis."
+      },
+      {
+        "data": "In January 2023, I joined the Fusyona team, working for over two years on DeFi, SciFi, and GameFi protocols, collaborating closely with LayerZero, SKALE, Taraxa, and Sei."
+      },
+      {
+        "data": "From February 2023 to September 2024, I taught undergraduate Computer Science and Data Science curricula at the <a href=\"https://www.linkedin.com/school/universidad-de-la-habana/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">University of Havana</a>, delivering advanced Database Systems and Computer Architecture courses to approximately 150 students, and mentored a blockchain research project, supervising thesis development."
+      },
+      {
+        "data": "On December 12, 2024, I moved to Dubai to take my career to the next level, leveraging first-world infrastructure and resources to become more efficient at work."
+      },
+      {
+        "data": "Near the end of December 2024, I joined the <a href=\"https://tokenfleet.io\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #3b82f6; text-decoration: underline;\">TokenFleet</a> team, working on both backend and frontend code and developing smart contracts to power the TokenFleet RWA protocol."
+      },
+      {
+        "data": "During Token2049 Week (April 27–May 4, 2025), I showcased the TokenFleet projects to investors, marketers, and engineers, forging valuable connections and sparking exciting collaborations."
+      },
+      {
+        "data": "As a volunteer at EthDubai 2025, I was part of the staff that welcomed every investor, speaker, and attendee. We provided IDs and guidance for a seamless stay, maintained security, and resolved any issues to ensure smooth conferences and talks."
+      }
+    ],
+    "miningMessage": "...and I'm still mining..."
+  },
   "teams": {
     "tokenfleet": {
       "name": "TokenFleet",
