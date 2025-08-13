@@ -1,25 +1,26 @@
 {
   "title": "Andy Ledesma García",
-  "subtitle": "CTO & Científico de la Computación & Desarrollador Blockchain & Desarrollador Back-end",
+  "subtitle": "Desarrollador Blockchain • CTO • Desarrollador Full-stack • Científico de la Computación",
   "sections": {
     "resume": "Currículum Vitae",
-    "contact": "Enlaces",
-    "profiles": "Perfiles Profesionales"
+    "contact": "Quiero saber de ti",
+    "review_title": "¿Me conoces? Deja una reseña",
+    "review_button": "Dejar una reseña",
+    "profiles": "Perfiles Profesionales",
+    "teams": "De los Equipos de"
   },
   "resume": {
-    "english": {
-      "title": "CV en Inglés",
-      "action": "Descargar"
-    },
-    "spanish": {
-      "title": "CV en Español",
-      "action": "Descargar"
-    }
+    "title": "Currículum",
+    "action": "Descargar",
+    "contact_cta": "Haz clic para contactar",
+    "availability": "Disponible para Nuevas Oportunidades",
+    "summary": "Profesional orientado a resultados, <strong>Ingeniero Blockchain</strong> y <strong>Científico de la Computación</strong> con <strong>más de 5 años</strong> de experiencia en 7 organizaciones. Mejoró y desarrolló una pionera plataforma de tokenización de Activos del Mundo Real (RWA) en Token Fleet, conectando negocios de alquiler de coches en Dubái con stablecoins e inversores globales a través de implementaciones ERC-20 y ERC-721. Ejerció como Líder Técnico de Blockchain en Fusyona, dirigiendo equipos de desarrollo que construyeron protocolos DeFi, exchanges descentralizados, mercados NFT y plataformas de lanzamiento de tokens. Desarrollador Full-stack experto especializado en Solidity, Golang, TypeScript, Next.js, C# y .NET. Integró con éxito sistemas Web2/Web3 en múltiples proyectos empresariales. Ex Profesor Universitario impartiendo programación avanzada y desarrollo blockchain."
   },
   "contact": {
     "whatsapp": "WhatsApp",
     "telegram": "Telegram",
-    "email": "Correo Electrónico"
+    "email": "Correo Electrónico",
+    "message": "Escríbeme, ¡me encantaría charlar!"
   },
   "profiles": {
     "linkedin": "LinkedIn",
@@ -84,9 +85,12 @@
     }
   },
   "footer": {
+    "beforeDubai": "Hecho con ❤️ en",
+    "afterDubai": "por Andy Ledesma García",
     "rights": "Todos los derechos reservados"
   },
   "language": {
-    "switch": "Cambiar a Inglés"
-  }
+    "switch": "🇺🇸 English"
+  },
+  "quote": "Son grandes los dragones, pero a mis espaldas tengo un cementerio de ellos\ny en sus tumbas está mi firma."
 }

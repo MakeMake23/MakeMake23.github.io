@@ -1,25 +1,29 @@
 {
   "title": "Andy Ledesma García",
-  "subtitle": "CTO & Computer Scientist & Blockchain Developer & Back-end Developer",
+  "subtitle": "Blockchain Developer • CTO • Full-stack Developer • Computer Scientist",
   "sections": {
     "resume": "Résumé (CV)",
-    "contact": "Links",
-    "profiles": "Professional Profiles"
+    "contact": "I wanna hear from you",
+    "review_title": "Know me? Leave a review",
+    "review_button": "Leave a Review",
+    "profiles": "Professional Profiles",
+    "teams": "From the Teams of",
+    "stats": "Stats",
+    "blockchain": "My life so far",
+    "language": "Language"
   },
   "resume": {
-    "english": {
-      "title": "English CV",
-      "action": "Download"
-    },
-    "spanish": {
-      "title": "Spanish CV",
-      "action": "Download"
-    }
+    "title": "Résumé",
+    "action": "Download",
+    "contact_cta": "Click to contact",
+    "availability": "Available for New Opportunities",
+    "summary": "Results-driven Blockchain Engineer and Computer Scientist with 5+ years of experience across 7 organizations. Enhanced and further developed a pioneering Real World Asset (RWA) tokenization platform at Token Fleet, connecting Dubai's car rental businesses with stablecoins and global investors through ERC-20 and ERC-721 implementations. Served as Blockchain Technical Lead at Fusyona, directing development teams that built DeFi protocols, decentralized exchanges, NFT marketplaces, and token launchpads. Expert Full-stack Developer specializing in Solidity, Golang, TypeScript, Next.js, C#, and .NET. Successfully integrated Web2/Web3 systems across multiple enterprise projects. Former University Instructor teaching advanced programming and blockchain development."
   },
   "contact": {
     "whatsapp": "WhatsApp",
     "telegram": "Telegram",
-    "email": "Email"
+    "email": "Email",
+    "message": "Drop me a message, I'd love to chat!"
   },
   "profiles": {
     "linkedin": "LinkedIn",
@@ -84,9 +88,12 @@
     }
   },
   "footer": {
+    "beforeDubai": "Made with ❤️ in",
+    "afterDubai": "by Andy Ledesma García",
     "rights": "All rights reserved"
   },
   "language": {
-    "switch": "Switch to Spanish"
-  }
+    "switch": "🇪🇸 Español"
+  },
+  "quote": "The dragons are mighty, but behind me lies a graveyard of them,\nand every tomb bears my signature."
 }

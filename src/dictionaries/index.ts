@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'es';
+export type Locale = "en" | "es";
 
 export type Dictionary = {
   title: string;
@@ -7,21 +7,22 @@ export type Dictionary = {
     resume: string;
     contact: string;
     profiles: string;
+    teams: string;
+    review_title: string;
+    review_button: string;
   };
   resume: {
-    english: {
-      title: string;
-      action: string;
-    };
-    spanish: {
-      title: string;
-      action: string;
-    };
+    title: string;
+    action: string;
+    contact_cta: string;
+    availability: string;
+    summary: string;
   };
   contact: {
     whatsapp: string;
     telegram: string;
     email: string;
+    message: string;
   };
   profiles: {
     linkedin: string;
@@ -40,6 +41,7 @@ export type Dictionary = {
     blocks: {
       data: string;
     }[];
+    miningMessage: string;
   };
   teams: {
     tokenfleet: {
@@ -52,15 +54,18 @@ export type Dictionary = {
     };
   };
   footer: {
+    beforeDubai: string;
+    afterDubai: string;
     rights: string;
   };
   language: {
     switch: string;
   };
+  quote: string;
 };
 
-import en from './en.json';
-import es from './es.json';
+import en from "./en.json";
+import es from "./es.json";
 
 const dictionaries: Record<Locale, Dictionary> = {
   en,
