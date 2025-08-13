@@ -22,7 +22,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Andy Ledesma García | CTO & Computer Scientist",
+  title:
+    "Andy Ledesma García | Blockchain Developer & CTO & Computer Scientist & more",
   description:
     "CTO & Computer Scientist & Blockchain Developer & Back-end Developer",
   keywords:
@@ -40,7 +41,6 @@ export default function RootLayout({
 
   return (
     <html lang={lang}>
-
       <head>
         <link rel="icon" type="image/png" sizes="16x16" href={favicon16.src} />
         <link rel="icon" type="image/png" sizes="32x32" href={favicon32.src} />
@@ -67,7 +67,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CustomCursor defaultCursor={ethCursor.src} clickCursor={ethCursorClick.src} />
+        <CustomCursor
+          defaultCursor={ethCursor.src}
+          clickCursor={ethCursorClick.src}
+        />
         {children}
       </body>
     </html>
