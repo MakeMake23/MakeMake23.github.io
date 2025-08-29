@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { getDictionary, Locale } from "../../dictionaries";
+import { getDictionary, Locale } from "@/dictionaries";
+import ContactDecorations from "@/components/ContactDecorations";
 import AnimatedComponent from "@/components/AnimatedComponent";
 import AnimatedRoles from "@/components/AnimatedRoles";
 import Counter from "@/components/Counter";
@@ -142,8 +143,7 @@ export default async function Page({
 
         <AnimatedComponent>
           <section id="links" className="mb-12 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20 rounded-xl -z-10 transform -rotate-1"></div>
-            <div className="absolute inset-0 border-2 border-dashed border-blue-300 dark:border-blue-700 rounded-xl -z-10 transform rotate-1"></div>
+            <ContactDecorations />
             <div className="py-8 px-4">
               <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-600 dark:from-blue-400 dark:to-teal-400 mb-6 text-center flex items-center justify-center gap-2 animate-pulse-slow">
                 ✨ {dict.sections.contact} ✨
