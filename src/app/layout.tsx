@@ -30,17 +30,23 @@ export const metadata: Metadata = {
     "Andy Ledesma García, CTO, Computer Scientist, Blockchain Developer, Back-end Developer",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params?: { lang?: string };
+  params?: Promise<{ lang?: string }>;
 }>) {
-  const lang = params?.lang || "en";
+  let language = "en";
+  if (params) {
+    const { lang } = await params;
+    if (lang) {
+      language = lang;
+    }
+  }
 
   return (
-    <html lang={lang}>
+    <html lang={language}>
       <head>
         <link rel="icon" type="image/png" sizes="16x16" href={favicon16.src} />
         <link rel="icon" type="image/png" sizes="32x32" href={favicon32.src} />
