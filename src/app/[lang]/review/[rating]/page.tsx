@@ -14,7 +14,7 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
   const initialRating = parseInt(rating, 10);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <ReviewPageClient initialRating={initialRating} dict={dict} />
     </div>
   );
