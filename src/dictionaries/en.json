@@ -12,6 +12,13 @@
     "blockchain": "My life so far",
     "language": "Language"
   },
+  "navigation": {
+    "home": "Home",
+    "cv": "CV",
+    "say_hi": "Say Hi",
+    "reviews": "Reviews",
+    "blog": "Blog"
+  },
   "resume": {
     "title": "Résumé",
     "action": "Download",
@@ -90,7 +97,11 @@
   "footer": {
     "beforeDubai": "Made with ❤️ in",
     "afterDubai": "by Andy Ledesma García",
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "privacy_policy": "Privacy Policy",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
   },
   "language": {
     "switch": "🇪🇸 Español"

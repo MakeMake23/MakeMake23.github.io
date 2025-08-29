@@ -9,6 +9,13 @@
     "profiles": "Perfiles Profesionales",
     "teams": "De los Equipos de"
   },
+  "navigation": {
+    "home": "Inicio",
+    "cv": "CV",
+    "say_hi": "Saludar",
+    "reviews": "Reseñas",
+    "blog": "Blog"
+  },
   "resume": {
     "title": "Currículum",
     "action": "Descargar",
@@ -87,7 +94,11 @@
   "footer": {
     "beforeDubai": "Hecho con ❤️ en",
     "afterDubai": "por Andy Ledesma García",
-    "rights": "Todos los derechos reservados"
+    "rights": "Todos los derechos reservados",
+    "privacy_policy": "Política de Privacidad",
+    "contact": "Contacto",
+    "blog": "Blog"
+  },
   },
   "language": {
     "switch": "🇺🇸 English"

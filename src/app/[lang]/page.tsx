@@ -1,5 +1,4 @@
 import Image from "next/image";
-import dubaiText from "@/assets/images/dubai-text.png";
 import { getDictionary, Locale } from "../../dictionaries";
 import AnimatedComponent from "@/components/AnimatedComponent";
 import AnimatedRoles from "@/components/AnimatedRoles";
@@ -7,7 +6,6 @@ import Counter from "@/components/Counter";
 import CVCard from "@/components/CVCard";
 import Blockchain from "@/components/Blockchain";
 import TeamsSection from "@/components/TeamsSection";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ReviewSection from "@/components/ReviewSection";
 import {
   FaGithub,
@@ -16,7 +14,6 @@ import {
   FaTelegramPlane,
   FaWhatsapp,
 } from "react-icons/fa";
-import dubai from "@/assets/images/dubai.png";
 
 const IS_AVAILABLE_FOR_WORK =
   process.env.NEXT_PUBLIC_IS_AVAILABLE_FOR_WORK === "true";
@@ -34,8 +31,6 @@ export default async function Page({
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <LanguageSwitcher currentLocale={lang as Locale} />
-
         <AnimatedComponent>
           <section className="mb-12">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
@@ -78,7 +73,7 @@ export default async function Page({
         <AnimatedComponent>
           <header className="text-center mb-12">
             <div className="flex justify-center mb-6">
-              <div className="relative overflow-hidden shadow-lg">
+              <div className="relative overflow-hidden rounded-full">
                 <Image
                   src="/profile.png"
                   alt="Andy Ledesma García"
@@ -217,20 +212,6 @@ export default async function Page({
             reviewTitle={dict.sections.review_title}
             buttonText={dict.sections.review_button}
           />
-        </AnimatedComponent>
-
-        <AnimatedComponent>
-          <footer className="mt-1 text-center text-gray-500 dark:text-gray-400">
-            <p>
-              &copy; {new Date().getFullYear()} {dict.footer.beforeDubai}
-              <Image
-                src={dubaiText}
-                alt="Dubai"
-                className="inline-block h-9 w-auto relative -top-[2px]"
-              />
-              {dict.footer.afterDubai}. {dict.footer.rights}
-            </p>
-          </footer>
         </AnimatedComponent>
       </div>
     </div>

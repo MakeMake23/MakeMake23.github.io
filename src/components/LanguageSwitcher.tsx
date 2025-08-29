@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from 'next/navigation';
 import { Locale } from "../dictionaries";
 import en from "../dictionaries/en.json";
 import es from "../dictionaries/es.json";
@@ -9,12 +10,16 @@ interface LanguageSwitcherProps {
 }
 
 export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
+  const pathname = usePathname();
   const targetLocale = currentLocale === "en" ? "es" : "en";
   const label = targetLocale === "en" ? es.language.switch : en.language.switch;
-  const href = `/${targetLocale}`;
+
+  const pathSegments = pathname.split('/');
+  pathSegments[1] = targetLocale;
+  const href = pathSegments.join('/');
 
   return (
-    <div className="absolute top-4 right-4">
+    <div>
       <a
         href={href}
         onClick={e => {
