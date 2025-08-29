@@ -53,6 +53,15 @@ export type Dictionary = {
       description: string;
     };
   };
+  blog: {
+    title: string;
+    under_construction: string;
+    coming_soon: string;
+    description: string;
+    expected_launch: string;
+    follow_on_linkedin: string;
+    return_home: string;
+  };
   footer: {
     beforeDubai: string;
     afterDubai: string;
