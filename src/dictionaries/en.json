@@ -102,6 +102,33 @@
     "contact": "Contact",
     "blog": "Blog"
   },
+  "review_page": {
+    "title": "Thanks for your review!",
+    "message": "You rated with {rating} stars.",
+    "go_back_home": "Go back home",
+    "form": {
+      "title": "Leave your review about me",
+      "full_name": "Full Name",
+      "contact_method": "Contact Method",
+      "contact_info": "Contact Information",
+      "linkedin": "LinkedIn",
+      "email": "Email",
+      "telegram": "Telegram",
+      "phone": "Phone Number",
+      "submit_button": "Submit Review",
+      "submitting_button": "Submitting...",
+      "success_message": "Thank you! Your review has been submitted successfully.",
+      "errors": {
+        "invalid_email": "Please enter a valid email address.",
+        "invalid_linkedin": "Please enter a valid LinkedIn profile URL.",
+        "invalid_telegram": "Please enter a valid Telegram handle (e.g., @username).",
+        "invalid_phone": "Please enter a valid phone number."
+      },
+      "experience_label": "Care to share more about your experience? (Optional)",
+      "experience_placeholder": "Tell me about our journey together...",
+      "consent_checkbox": "I understand that my review, full name, and contact information will be stored and displayed publicly on this website for testimonial and verification purposes.",
+      "consent_checkbox_link_text": "By submitting, you agree to the"
+    }
   },
   "language": {
     "switch": "🇪🇸 Español"

@@ -10,6 +10,7 @@ import favicon512 from "../assets/images/favicon-512x512.png";
 import ethCursor from "../assets/images/eth-cursor.png";
 import ethCursorClick from "../assets/images/eth-cursor-click.gif";
 import CustomCursor from "@/components/CustomCursor";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,10 @@ export default async function RootLayout({
   return (
     <html lang={language}>
       <head>
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+          strategy="afterInteractive"
+        />
         <link rel="icon" type="image/png" sizes="16x16" href={favicon16.src} />
         <link rel="icon" type="image/png" sizes="32x32" href={favicon32.src} />
         <link rel="icon" type="image/png" sizes="48x48" href={favicon48.src} />

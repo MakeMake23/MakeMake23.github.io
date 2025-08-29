@@ -57,6 +57,35 @@ export type Dictionary = {
     beforeDubai: string;
     afterDubai: string;
     rights: string;
+    privacy_policy: string;
+    contact: string;
+    blog: string;
+  };
+  review_page: {
+    title: string;
+    message: string;
+    go_back_home: string;
+    form: {
+      title: string;
+      full_name: string;
+      contact_method: string;
+      contact_info: string;
+      linkedin: string;
+      email: string;
+      telegram: string;
+      phone: string;
+      submit_button: string;
+      errors: {
+        invalid_email: string;
+        invalid_linkedin: string;
+        invalid_telegram: string;
+        invalid_phone: string;
+      };
+      experience_label: string;
+      experience_placeholder: string;
+      consent_checkbox: string;
+      consent_checkbox_link_text: string;
+    };
   };
   language: {
     switch: string;

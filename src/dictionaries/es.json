@@ -99,6 +99,33 @@
     "contact": "Contacto",
     "blog": "Blog"
   },
+  "review_page": {
+    "title": "¡Gracias por tu reseña!",
+    "message": "Calificaste con {rating} estrellas.",
+    "go_back_home": "Volver al inicio",
+    "form": {
+      "title": "Deja tu reseña sobre mí",
+      "full_name": "Nombre Completo",
+      "contact_method": "Método de Contacto",
+      "contact_info": "Información de Contacto",
+      "linkedin": "LinkedIn",
+      "email": "Correo Electrónico",
+      "telegram": "Telegram",
+      "phone": "Número de Teléfono",
+      "submit_button": "Enviar Reseña",
+      "submitting_button": "Enviando...",
+      "success_message": "¡Gracias! Tu reseña ha sido enviada con éxito.",
+      "errors": {
+        "invalid_email": "Por favor, introduce una dirección de correo electrónico válida.",
+        "invalid_linkedin": "Por favor, introduce una URL de perfil de LinkedIn válida.",
+        "invalid_telegram": "Por favor, introduce un usuario de Telegram válido (p. ej., @usuario).",
+        "invalid_phone": "Por favor, introduce un número de teléfono válido."
+      },
+      "experience_label": "¿Quieres compartir más sobre tu experiencia? (Opcional)",
+      "experience_placeholder": "Cuéntame sobre nuestro viaje juntos...",
+      "consent_checkbox": "Entiendo que mi reseña, nombre completo e información de contacto serán almacenados y mostrados públicamente en este sitio web con fines testimoniales y de verificación.",
+      "consent_checkbox_link_text": "Al enviar, aceptas la"
+    }
   },
   "language": {
     "switch": "🇺🇸 English"
