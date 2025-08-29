@@ -10,6 +10,7 @@ import favicon512 from "../assets/images/favicon-512x512.png";
 import ethCursor from "../assets/images/eth-cursor.png";
 import ethCursorClick from "../assets/images/eth-cursor-click.gif";
 import CustomCursor from "@/components/CustomCursor";
+import PageTransitionWrapper from "@/components/PageTransitionWrapper";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -82,7 +83,7 @@ export default async function RootLayout({
           defaultCursor={ethCursor.src}
           clickCursor={ethCursorClick.src}
         />
-        {children}
+        <PageTransitionWrapper>{children}</PageTransitionWrapper>
       </body>
     </html>
   );
