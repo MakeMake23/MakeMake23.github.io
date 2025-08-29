@@ -130,5 +130,39 @@
   "language": {
     "switch": "🇺🇸 English"
   },
-  "quote": "Son grandes los dragones, pero a mis espaldas tengo un cementerio de ellos\ny en sus tumbas está mi firma."
+  "quote": "Son grandes los dragones, pero a mis espaldas tengo un cementerio de ellos\ny en sus tumbas está mi firma.",
+  "privacy_policy": {
+    "title": "Política de Privacidad",
+    "last_updated": "Última Actualización: 26 de Agosto de 2025",
+    "introduction": "¡Bienvenido a mi sitio web personal! Esta Política de Privacidad explica cómo recopilo, uso y protejo tu información cuando dejas una reseña. Tu confianza es importante para mí y estoy comprometido con la protección de tu privacidad.",
+    "data_we_collect": {
+      "title": "¿Qué Información Recopilo?",
+      "items": [
+        "<strong>Nombre Completo:</strong> Para saber quién eres.",
+        "<strong>Información de Contacto:</strong> El método que elijas (Correo, LinkedIn, Telegram o Teléfono), permitiendo que yo y otros podamos contactarte sobre tu reseña.",
+        "<strong>Tu Experiencia:</strong> La reseña y los comentarios que escribes sobre nuestra colaboración.",
+        "<strong>Calificación:</strong> La calificación de estrellas que proporcionas."
+      ]
+    },
+    "how_we_use_data": {
+      "title": "¿Cómo Uso Tu Información?",
+      "items": [
+        "<strong>Para Mostrar Tu Reseña:</strong> Tu reseña, nombre completo y calificación pueden mostrarse públicamente en la página de inicio de mi sitio web u otras secciones para mostrar mi trabajo y colaboraciones.",
+        "<strong>Para Contactarte y Para Verificación:</strong> Puedo usar tu información de contacto para agradecerte por tu reseña o para aclarar detalles. También podría mostrarse con tu reseña para permitir que otros (como potenciales clientes o empleadores) verifiquen el testimonio.",
+        "<strong>Para Mejorar Mis Servicios:</strong> Tus comentarios me ayudan a entender qué estoy haciendo bien y dónde puedo mejorar."
+      ]
+    },
+    "data_sharing": {
+      "title": "Uso Compartido y Almacenamiento de Datos",
+      "content": "No vendo ni comercializo tu información personal. Los datos de tu reseña, incluyendo tu nombre y testimonio, se almacenan de forma segura. Tu información de contacto podría mostrarse públicamente junto a tu reseña como se describe arriba. Aparte de esta exhibición pública, no se compartirá con terceros."
+    },
+    "your_rights": {
+      "title": "Tus Derechos",
+      "content": "Tienes derecho a solicitar la eliminación de tu reseña de mi sitio web en cualquier momento. Para ello, por favor, contáctame a través de uno de los métodos listados en el sitio, y atenderé tu solicitud a la brevedad."
+    },
+    "contact": {
+      "title": "Contáctame",
+      "content": "Si tienes alguna pregunta sobre esta Política de Privacidad, no dudes en <a href='/#links' class='text-blue-500 hover:underline'>contactarme</a>. ¡Gracias por tu confianza y por tomarte el tiempo para dejar una reseña!"
+    }
+  }
 }

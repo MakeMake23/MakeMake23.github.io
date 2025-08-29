@@ -91,6 +91,31 @@ export type Dictionary = {
     switch: string;
   };
   quote: string;
+  privacy_policy: {
+    title: string;
+    last_updated: string;
+    introduction: string;
+    data_we_collect: {
+      title: string;
+      items: string[];
+    };
+    how_we_use_data: {
+      title: string;
+      items: string[];
+    };
+    data_sharing: {
+      title: string;
+      content: string;
+    };
+    your_rights: {
+      title: string;
+      content: string;
+    };
+    contact: {
+      title: string;
+      content: string;
+    };
+  };
 };
 
 import en from "./en.json";
