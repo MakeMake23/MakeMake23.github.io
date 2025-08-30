@@ -1,32 +1,66 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import favicon from "@/assets/images/favicon-180x180.png";
 
 const BrandName = () => {
-  const mainText = "andylg";
-  const domainText = ".me";
-  // Use null for initial state to prevent hydration mismatch
-  const [isAnimating, setIsAnimating] = useState<boolean | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Set initial state to false after hydration
-    setIsAnimating(false);
-    
-    // Delay the animation setup to ensure hydration is complete
-    const animationTimer = setTimeout(() => {
-      const interval = setInterval(() => {
-        setIsAnimating(true);
-        setTimeout(() => setIsAnimating(false), (mainText + domainText).length * 100 + 500);
-      }, 5000);
-      
-      return () => clearInterval(interval);
-    }, 1000);
-    
-    return () => clearTimeout(animationTimer);
-  }, [mainText, domainText]);
+    setIsMounted(true);
+  }, []);
+  const mainText = "andylg";
+  const domainText = ".me";
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const animationTrigger = () => {
+      setIsAnimating(true);
+      const totalAnimationTime =
+        ((mainText + domainText).length + 1) * 100 + 500;
+      setTimeout(() => setIsAnimating(false), totalAnimationTime);
+    };
+
+    const initialTimeout = setTimeout(animationTrigger, 1000);
+
+    const interval = setInterval(animationTrigger, 5000);
+
+    return () => {
+      clearTimeout(initialTimeout);
+      clearInterval(interval);
+    };
+  }, [isMounted, mainText, domainText]);
+
+  if (!isMounted) {
+    return (
+      <h1 className="font-bold text-lg flex items-center gap-2">
+        <Image
+          src={favicon}
+          alt="logo"
+          width={40}
+          height={40}
+          className="rounded-full"
+        />
+        <span style={{ color: "rgb(16, 47, 227)" }}>{mainText}</span>
+        <span
+          style={{
+            color: "white",
+            textShadow:
+              "0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black",
+            WebkitTextStroke: "1px black",
+          }}
+        >
+          {domainText}
+        </span>
+      </h1>
+    );
+  }
 
   return (
-    <h1 className="font-bold text-lg">
+    <h1 className="font-bold text-lg flex items-center gap-1">
       <style jsx>{`
         @keyframes wave {
           0%,
@@ -45,38 +79,39 @@ const BrandName = () => {
           animation-fill-mode: forwards;
         }
       `}</style>
-      {/* Only render animation when isAnimating is not null (after hydration) */}
-      {isAnimating !== null ? (
-        (mainText + domainText).split("").map((char: string, index: number) => {
+      <span
+        className={isAnimating ? "wave-char" : ""}
+        style={{ animationDelay: isAnimating ? "0s" : "0s" }}
+      >
+        <Image
+          src={favicon}
+          alt="logo"
+          width={40}
+          height={40}
+          className="rounded-full"
+        />
+      </span>
+      <span className="flex">
+        {(mainText + domainText).split("").map((char, index) => {
           const isInDomain = index >= mainText.length;
           return (
             <span
               key={index}
               className={isAnimating ? "wave-char" : ""}
               style={{
-                animationDelay: isAnimating ? `${index * 0.1}s` : "0s",
+                animationDelay: isAnimating ? `${(index + 1) * 0.1}s` : "0s",
                 color: isInDomain ? "white" : "rgb(16, 47, 227)",
-                textShadow: isInDomain ? "0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black" : "none",
-                WebkitTextStroke: isInDomain ? "1px black" : "none"
+                textShadow: isInDomain
+                  ? "0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black"
+                  : "none",
+                WebkitTextStroke: isInDomain ? "1px black" : "none",
               }}
             >
               {char}
             </span>
           );
-        })
-      ) : (
-        /* Static fallback for initial server render */
-        <>
-          <span style={{ color: "rgb(16, 47, 227)" }}>{mainText}</span>
-          <span style={{ 
-            color: "white", 
-            textShadow: "0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black",
-            WebkitTextStroke: "1px black"
-          }}>
-            {domainText}
-          </span>
-        </>
-      )}
+        })}
+      </span>
     </h1>
   );
 };
