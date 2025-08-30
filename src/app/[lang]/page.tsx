@@ -145,7 +145,7 @@ export default async function Page({
           <section id="links" className="mb-12 relative">
             <ContactDecorations />
             <div className="py-8 px-4">
-              <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-600 dark:from-blue-400 dark:to-teal-400 mb-6 text-center flex items-center justify-center gap-2 animate-pulse-slow">
+              <h2 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-600 dark:from-blue-400 dark:to-teal-400 mb-6 text-center flex items-center justify-center gap-2 animate-pulse-slow">
                 ✨ {dict.sections.contact} ✨
               </h2>
               <div className="flex justify-center items-center gap-8 text-4xl">

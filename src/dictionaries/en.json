@@ -101,7 +101,7 @@
     "description": "I'm working on some exciting content for my blog. Stay tuned for a variety of articles covering my interests, experiences, and insights.",
     "expected_launch": "Expected launch: October 2025",
     "follow_on_linkedin": "Follow me on LinkedIn to get notified when new posts are ready!",
-    "return_home": "Return Home"
+    "return_home": "Go back"
   },
   "footer": {
     "footer_made_with": "Made with",
@@ -125,7 +125,7 @@
       "linkedin": "LinkedIn",
       "email": "Email",
       "telegram": "Telegram",
-      "phone": "Phone Number",
+      "phone": "Phone",
       "submit_button": "Submit Review",
       "submitting_button": "Submitting...",
       "success_message": "Thank you! Your review has been submitted successfully.",

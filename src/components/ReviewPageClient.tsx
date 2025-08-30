@@ -192,7 +192,7 @@ const ReviewPageClient = ({ initialRating, dict }: ReviewPageClientProps) => {
   return (
     <AnimatedComponent>
       <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg max-w-2xl w-full">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4 text-center">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4 text-center">
           {dict.review_page.form.title}
         </h1>
         <div className="flex justify-center mb-6">

@@ -98,7 +98,7 @@
     "description": "Estoy trabajando en contenido emocionante para mi blog. Manténte atento para una variedad de artículos que cubren mis intereses, experiencias y perspectivas.",
     "expected_launch": "Lanzamiento previsto: Octubre 2025",
     "follow_on_linkedin": "¡Sígueme en LinkedIn para recibir notificaciones cuando haya nuevas publicaciones!",
-    "return_home": "Volver al Inicio"
+    "return_home": "Ir atrás"
   },
   "footer": {
     "footer_made_with": "Hecho con",
@@ -120,9 +120,9 @@
       "contact_method": "Método de Contacto",
       "contact_info": "Información de Contacto",
       "linkedin": "LinkedIn",
-      "email": "Correo Electrónico",
+      "email": "Correo",
       "telegram": "Telegram",
-      "phone": "Número de Teléfono",
+      "phone": "Teléfono",
       "submit_button": "Enviar Reseña",
       "submitting_button": "Enviando...",
       "success_message": "¡Gracias! Tu reseña ha sido enviada con éxito.",
