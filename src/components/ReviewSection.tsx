@@ -24,7 +24,7 @@ const ReviewSection = ({ reviewTitle, buttonText }: ReviewSectionProps) => {
   };
 
   return (
-    <section id="review" className="mb-12 relative">
+    <section id="review" className="relative">
       <div className="py-8 px-4">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8 text-center">
           {reviewTitle}
