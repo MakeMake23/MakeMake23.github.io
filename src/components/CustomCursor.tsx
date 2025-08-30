@@ -7,53 +7,78 @@ interface CustomCursorProps {
   clickCursor: string;
 }
 
-function elementHasClassSelector(element: HTMLElement | null, selector: string): boolean {
+function elementHasClassSelector(
+  element: HTMLElement | null,
+  selector: string
+): boolean {
   return element?.classList.contains(selector.substring(1)) || false;
 }
 
-function elementMatchesAttributeSelector(element: HTMLElement | null, selector: string): boolean {
+function elementMatchesAttributeSelector(
+  element: HTMLElement | null,
+  selector: string
+): boolean {
   const attrMatch = selector.match(/\[(.*?)=?"?(.*?)"?\]/);
   if (attrMatch && attrMatch.length >= 2) {
     const [_, attr, value] = attrMatch;
-    return value 
-      ? element?.getAttribute(attr) === value 
+    return value
+      ? element?.getAttribute(attr) === value
       : element?.hasAttribute(attr) || false;
   }
   return false;
 }
 
-function elementMatchesTagSelector(element: HTMLElement | null, selector: string): boolean {
+function elementMatchesTagSelector(
+  element: HTMLElement | null,
+  selector: string
+): boolean {
   return element?.tagName.toLowerCase() === selector.toLowerCase() || false;
 }
 
-const CustomCursor: React.FC<CustomCursorProps> = ({ defaultCursor, clickCursor }) => {
+const CustomCursor: React.FC<CustomCursorProps> = ({
+  defaultCursor,
+  clickCursor,
+}) => {
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [clicked, setClicked] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
+    const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(hasTouch);
+
+    if (hasTouch) {
+      return;
+    }
+
     const updatePosition = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
     const handleMouseDown = () => setClicked(true);
     const handleMouseUp = () => setClicked(false);
-    
+
     const checkHovering = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const clickableElements = [
-        'a', 'button', '[role="button"]', 'input[type="submit"]',
-        'input[type="button"]', 'input[type="reset"]', '.clickable'
+        "a",
+        "button",
+        '[role="button"]',
+        'input[type="submit"]',
+        'input[type="button"]',
+        'input[type="reset"]',
+        ".clickable",
       ];
-      
+
       // Check if the element or any of its parents match our clickable selectors
       let currentElement: HTMLElement | null = target;
       let isClickable = false;
-      
+
       while (currentElement && !isClickable) {
-        isClickable = clickableElements.some(selector => {
-          const isClassSelector = selector.startsWith('.');
-          const isAttributeSelector = selector.startsWith('[');
+        isClickable = clickableElements.some((selector) => {
+          const isClassSelector = selector.startsWith(".");
+          const isAttributeSelector = selector.startsWith("[");
 
           if (isClassSelector) {
             return elementHasClassSelector(currentElement, selector);
@@ -63,10 +88,10 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ defaultCursor, clickCursor 
             return elementMatchesTagSelector(currentElement, selector);
           }
         });
-        
+
         currentElement = currentElement.parentElement;
       }
-      
+
       setIsHovering(isClickable);
     };
 
@@ -82,6 +107,10 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ defaultCursor, clickCursor 
       window.removeEventListener("mouseup", handleMouseUp);
     };
   }, []);
+
+  if (isTouchDevice) {
+    return null;
+  }
 
   return (
     <div
