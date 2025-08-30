@@ -5,22 +5,29 @@ import dubaiText from "@/assets/images/dubai-text.png";
 
 interface FooterProps {
   dict: any;
+  appVersion?: string;
 }
 
-const Footer = ({ dict }: FooterProps) => {
+const Footer = ({ dict, appVersion }: FooterProps) => {
   return (
     <AnimatedComponent>
       <footer className="mt-12 py-4 text-center text-gray-500 dark:text-gray-400">
         <p>
-          &copy; {new Date().getFullYear()} {dict.footer.beforeDubai}
+          &copy; {new Date().getFullYear()} {dict.footer.footer_made_with}{" "}
+          <span className="animate-heartbeat">❤️</span> {dict.footer.footer_in}
           <Image
             src={dubaiText}
             alt="Dubai"
-            className="inline-block h-12 w-auto relative -top-[4px]"
+            className="inline-block h-8 w-auto relative -top-[8px] mb-0 mx-1"
           />
           {dict.footer.afterDubai}. {dict.footer.rights}
         </p>
-        <div className="mt-3 flex justify-center items-center space-x-4">
+        {appVersion && (
+          <p className="text-sm text-gray-500 mt-2">
+            {dict.footer.version} {appVersion}
+          </p>
+        )}
+        <div className="mt-10 flex justify-center items-center space-x-4">
           <Link
             href="/privacy"
             className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors"

@@ -101,12 +101,14 @@
     "return_home": "Volver al Inicio"
   },
   "footer": {
-    "beforeDubai": "Hecho con ❤️ en",
+    "footer_made_with": "Hecho con",
+    "footer_in": "en",
     "afterDubai": "por Andy Ledesma García",
     "rights": "Todos los derechos reservados",
     "privacy_policy": "Política de Privacidad",
     "contact": "Contacto",
-    "blog": "Blog"
+    "blog": "Blog",
+    "version": "Versión"
   },
   "review_page": {
     "title": "¡Gracias por tu reseña!",

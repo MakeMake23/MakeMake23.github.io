@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 1s ease-in-out infinite;
+    display: inline-block;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

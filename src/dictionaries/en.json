@@ -104,12 +104,14 @@
     "return_home": "Return Home"
   },
   "footer": {
-    "beforeDubai": "Made with ❤️ in",
+    "footer_made_with": "Made with",
+    "footer_in": "in",
     "afterDubai": "by Andy Ledesma García",
     "rights": "All rights reserved",
     "privacy_policy": "Privacy Policy",
     "contact": "Contact",
-    "blog": "Blog"
+    "blog": "Blog",
+    "version": "Version"
   },
   "review_page": {
     "title": "Thanks for your review!",
