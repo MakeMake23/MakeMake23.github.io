@@ -766,8 +766,7 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
               style={{
                 minWidth: "max-content",
                 paddingLeft: "calc(50% - 140px)",
-                paddingRight:
-                  "120px" /* Add padding to ensure we can scroll enough to see the miner */,
+                paddingRight: "calc(50% - 160px)",
               }}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
