@@ -16,7 +16,7 @@ export default async function LangLayout({
     <div>
       <Header currentLocale={lang} />
       <main>{children}</main>
-      <Footer dict={dict} appVersion={process.env.npm_package_version} />
+      <Footer dict={dict} appVersion={process.env.NEXT_PUBLIC_APP_VERSION} />
       <BackToTopButton />
     </div>
   );
