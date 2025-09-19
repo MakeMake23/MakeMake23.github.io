@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { readFileSync } from "fs";
-import { join } from "path";
-import { cwd } from "process";
-
 export async function GET(
-  _: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ lang: string }> }
 ) {
   const { lang } = await params;
@@ -13,10 +9,16 @@ export async function GET(
       ? "andy-ledesma-garcia-cv-es.pdf"
       : "andy-ledesma-garcia-cv.pdf";
 
-  const filePath = join(cwd(), "public", fileName);
+  const pdfUrl = new URL(fileName, request.nextUrl.origin);
 
   try {
-    const fileBuffer = readFileSync(filePath);
+    const pdfResponse = await fetch(pdfUrl);
+
+    if (!pdfResponse.ok) {
+      throw new Error(`Failed to fetch PDF: ${pdfResponse.statusText}`);
+    }
+
+    const fileBuffer = await pdfResponse.arrayBuffer();
 
     return new NextResponse(fileBuffer, {
       headers: {
