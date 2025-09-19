@@ -7,17 +7,19 @@ export default function ContactDecorations() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    let timer: ReturnType<typeof setTimeout> | null = null;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          const timer = setTimeout(() => {
+          timer = setTimeout(() => {
             setIsVisible(false);
           }, 1000);
           // Disconnect observer after triggering once
-          if (ref.current) {
-            observer.unobserve(ref.current);
-          }
-          return () => clearTimeout(timer);
+          observer.unobserve(node);
         }
       },
       {
@@ -26,16 +28,13 @@ export default function ContactDecorations() {
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(node);
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      if (timer) clearTimeout(timer);
+      observer.unobserve(node);
     };
-  }, [ref]);
+  }, []);
 
   if (!isVisible) {
     return null;

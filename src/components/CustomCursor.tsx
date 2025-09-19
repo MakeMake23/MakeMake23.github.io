@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface CustomCursorProps {
   defaultCursor: string;
@@ -20,7 +21,8 @@ function elementMatchesAttributeSelector(
 ): boolean {
   const attrMatch = selector.match(/\[(.*?)=?"?(.*?)"?\]/);
   if (attrMatch && attrMatch.length >= 2) {
-    const [_, attr, value] = attrMatch;
+    const attr = attrMatch[1];
+    const value = attrMatch[2];
     return value
       ? element?.getAttribute(attr) === value
       : element?.hasAttribute(attr) || false;
@@ -127,10 +129,13 @@ const CustomCursor: React.FC<CustomCursorProps> = ({
         transition: "transform 0.1s ease",
       }}
     >
-      <img
+      <Image
         src={isHovering ? clickCursor : defaultCursor}
         alt="Custom cursor"
-        style={{ width: "100%", height: "100%" }}
+        width={32}
+        height={32}
+        unoptimized
+        priority
       />
     </div>
   );

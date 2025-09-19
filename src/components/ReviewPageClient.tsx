@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { useReview } from "@/context/ReviewContext";
@@ -50,47 +50,50 @@ const ReviewPageClient = ({ initialRating, dict }: ReviewPageClientProps) => {
     }
   }, [rating, pathname, router]);
 
-  const validateContactInfo = (value: string) => {
-    if (!value) {
-      setContactInfoError(null);
-      return;
-    }
+  const validateContactInfo = useCallback(
+    (value: string) => {
+      if (!value) {
+        setContactInfoError(null);
+        return;
+      }
 
-    let error: string | null = null;
-    switch (contactMethod) {
-      case "email":
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-          error = dict.review_page.form.errors.invalid_email;
-        }
-        break;
-      case "linkedin":
-        if (
-          !/^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/.test(
-            value
-          )
-        ) {
-          error = dict.review_page.form.errors.invalid_linkedin;
-        }
-        break;
-      case "telegram":
-        if (!/^@[a-zA-Z0-9_]{5,32}$/.test(value)) {
-          error = dict.review_page.form.errors.invalid_telegram;
-        }
-        break;
-      case "phone":
-        if (!/^\+?[1-9]\d{1,14}$/.test(value)) {
-          error = dict.review_page.form.errors.invalid_phone;
-        }
-        break;
-      default:
-        break;
-    }
-    setContactInfoError(error);
-  };
+      let error: string | null = null;
+      switch (contactMethod) {
+        case "email":
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+            error = dict.review_page.form.errors.invalid_email;
+          }
+          break;
+        case "linkedin":
+          if (
+            !/^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/.test(
+              value
+            )
+          ) {
+            error = dict.review_page.form.errors.invalid_linkedin;
+          }
+          break;
+        case "telegram":
+          if (!/^@[a-zA-Z0-9_]{5,32}$/.test(value)) {
+            error = dict.review_page.form.errors.invalid_telegram;
+          }
+          break;
+        case "phone":
+          if (!/^\+?[1-9]\d{1,14}$/.test(value)) {
+            error = dict.review_page.form.errors.invalid_phone;
+          }
+          break;
+        default:
+          break;
+      }
+      setContactInfoError(error);
+    },
+    [contactMethod, dict]
+  );
 
   useEffect(() => {
     validateContactInfo(contactInfo);
-  }, [contactInfo, contactMethod]);
+  }, [contactInfo, contactMethod, validateContactInfo]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -177,13 +180,17 @@ const ReviewPageClient = ({ initialRating, dict }: ReviewPageClientProps) => {
       );
 
       if (!response.ok) {
-        const errorData = await response.json();
+        const errorData = await response.json<{ message: string }>();
         throw new Error(errorData.message || "Something went wrong");
       }
 
       setSubmitSuccess(true);
-    } catch (error: any) {
-      setSubmitError(error.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        setSubmitError(error.message);
+      } else {
+        setSubmitError("An unexpected error occurred");
+      }
     } finally {
       setIsLoading(false);
     }

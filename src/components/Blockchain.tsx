@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import AnimatedComponent from "./AnimatedComponent";
 import Image from "next/image";
 import {
@@ -143,6 +143,14 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
   const baseScrollSpeed = 1.5;
   const autoScrollSpeed = speedLevel * baseScrollSpeed;
 
+  const updateArrowVisibility = useCallback(
+    (position: number, maxScrollValue: number) => {
+      setShowLeftArrow(position > 0);
+      setShowRightArrow(position < maxScrollValue);
+    },
+    []
+  );
+
   // Calculate the maximum scroll amount
   useEffect(() => {
     const calculateScroll = () => {
@@ -167,17 +175,9 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
       clearTimeout(timeoutId);
       window.removeEventListener("resize", calculateScroll);
     };
-  }, [scrollPosition]);
+  }, [scrollPosition, updateArrowVisibility]);
 
-  // Update arrow visibility based on scroll position
-  const updateArrowVisibility = (position: number, maxScrollValue: number) => {
-    setShowLeftArrow(position > 0);
-    setShowRightArrow(position < maxScrollValue);
-  };
-
-  // Handle scroll button clicks
   const handleScrollButton = (direction: "left" | "right") => {
-    // Pause auto-scrolling when manually navigating
     pauseAutoScroll();
 
     if (scrollContainerRef.current) {
@@ -196,7 +196,6 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
     }
   };
 
-  // Handle mouse down for drag scrolling
   const handleMouseDown = (e: React.MouseEvent) => {
     if (scrollContainerRef.current) {
       // Pause auto-scrolling when user starts dragging
@@ -207,7 +206,6 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
     }
   };
 
-  // Handle mouse move for drag scrolling
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !scrollContainerRef.current) return;
     e.preventDefault();
@@ -220,51 +218,50 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
     updateArrowVisibility(newPosition, maxScroll);
   };
 
-  // Handle mouse up and leave for drag scrolling
   const handleDragEnd = () => {
     setIsDragging(false);
   };
 
   // Handle scroll events
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (scrollContainerRef.current) {
       const newPosition = scrollContainerRef.current.scrollLeft;
       setScrollPosition(newPosition);
       updateArrowVisibility(newPosition, maxScroll);
     }
-  };
+  }, [maxScroll, updateArrowVisibility]);
 
-  // Create reusable scroll animation function
-  const createScrollAnimation = (customSpeed?: number) => () => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      // Use custom speed if provided, otherwise use the current autoScrollSpeed
-      const speed = customSpeed !== undefined ? customSpeed : autoScrollSpeed;
-      const newPosition = container.scrollLeft + speed;
+  const createScrollAnimation = useCallback(
+    (customSpeed?: number) => () => {
+      if (scrollContainerRef.current) {
+        const container = scrollContainerRef.current;
+        const speed = customSpeed !== undefined ? customSpeed : autoScrollSpeed;
+        const newPosition = container.scrollLeft + speed;
 
-      // Stop at the end instead of resetting
-      if (newPosition >= maxScroll) {
-        container.scrollLeft = maxScroll;
-        setScrollPosition(maxScroll);
-        updateArrowVisibility(maxScroll, maxScroll);
+        // Stop at the end instead of resetting
+        if (newPosition >= maxScroll) {
+          container.scrollLeft = maxScroll;
+          setScrollPosition(maxScroll);
+          updateArrowVisibility(maxScroll, maxScroll);
 
-        // Stop the animation and mark as reached end
-        if (autoScrollRef.current) {
-          clearInterval(autoScrollRef.current);
-          autoScrollRef.current = null;
+          // Stop the animation and mark as reached end
+          if (autoScrollRef.current) {
+            clearInterval(autoScrollRef.current);
+            autoScrollRef.current = null;
+          }
+          setIsAutoScrolling(false);
+          setHasReachedEnd(true);
+        } else {
+          container.scrollLeft = newPosition;
+          setScrollPosition(newPosition);
+          updateArrowVisibility(newPosition, maxScroll);
         }
-        setIsAutoScrolling(false);
-        setHasReachedEnd(true);
-      } else {
-        container.scrollLeft = newPosition;
-        setScrollPosition(newPosition);
-        updateArrowVisibility(newPosition, maxScroll);
       }
-    }
-  };
+    },
+    [autoScrollSpeed, maxScroll, updateArrowVisibility]
+  );
 
-  // Auto-scroll functionality
-  const startAutoScroll = () => {
+  const startAutoScroll = useCallback(() => {
     // Clear any existing interval first
     if (autoScrollRef.current) {
       clearInterval(autoScrollRef.current);
@@ -277,7 +274,7 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
 
     // Use setInterval for consistent timing
     autoScrollRef.current = setInterval(createScrollAnimation(), 30);
-  };
+  }, [createScrollAnimation]);
 
   const pauseAutoScroll = () => {
     if (autoScrollRef.current) {
@@ -296,7 +293,6 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
     }
   };
 
-  // Function to increase speed level (cycles through 1, 2, 3)
   const increaseSpeed = () => {
     // First stop current animation if running
     if (isAutoScrolling && !hasReachedEnd && autoScrollRef.current) {
@@ -304,15 +300,11 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
       autoScrollRef.current = null;
     }
 
-    // Calculate the new speed level (we do this calculation directly to avoid state update delays)
     const newSpeedLevel = (speedLevel % 3) + 1;
-
-    // Update the speed level state
     setSpeedLevel(newSpeedLevel);
 
     // Restart animation with new speed if it was running
     if (isAutoScrolling && !hasReachedEnd) {
-      // Start new animation immediately with the calculated speed level
       // Multiply by baseScrollSpeed to get the actual pixel speed
       autoScrollRef.current = setInterval(
         createScrollAnimation(newSpeedLevel * baseScrollSpeed),
@@ -345,16 +337,6 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
       contentRef.current &&
       !hasReachedEnd
     ) {
-      // Center the first block in the viewport
-      const containerWidth = scrollContainerRef.current.offsetWidth;
-      const firstBlockWidth = 280; // Approximate width of block + margin (264px + margins)
-
-      // Position the first block in the center
-      const initialScrollPosition = Math.max(
-        0,
-        containerWidth / 2 - firstBlockWidth / 2
-      );
-
       // Only reset to beginning if we haven't reached the end
       if (!hasReachedEnd) {
         scrollContainerRef.current.scrollLeft = 0; // Reset to beginning
@@ -384,7 +366,13 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
         }, 100);
       }
     }
-  }, [maxScroll, hasReachedEnd]); // Run this effect when maxScroll or hasReachedEnd changes
+  }, [
+    maxScroll,
+    hasReachedEnd,
+    startAutoScroll,
+    isAutoScrolling,
+    updateArrowVisibility,
+  ]);
 
   // Handle auto-scrolling separately
   useEffect(() => {
@@ -404,7 +392,7 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
         clearTimeout(timeoutId);
       };
     }
-  }, [isAutoScrolling]); // Only run this when isAutoScrolling changes
+  }, [isAutoScrolling, hasReachedEnd, maxScroll, startAutoScroll]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -422,7 +410,7 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
       container.addEventListener("scroll", handleScroll);
       return () => container.removeEventListener("scroll", handleScroll);
     }
-  }, [maxScroll]);
+  }, [maxScroll, handleScroll]);
   const rawBlocks: BlockProps[] = [
     {
       index: 0,
