@@ -3,6 +3,13 @@ export type Locale = "en" | "es";
 export type Dictionary = {
   title: string;
   subtitle: string;
+  navigation: {
+    home: string;
+    cv: string;
+    say_hi: string;
+    reviews: string;
+    blog: string;
+  };
   sections: {
     resume: string;
     contact: string;
@@ -63,9 +70,11 @@ export type Dictionary = {
     return_home: string;
   };
   footer: {
-    beforeDubai: string;
+    footer_made_with: string;
+    footer_in: string;
     afterDubai: string;
     rights: string;
+    version: string;
     privacy_policy: string;
     contact: string;
     blog: string;
