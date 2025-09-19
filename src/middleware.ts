@@ -5,9 +5,9 @@ import { Locale } from "./dictionaries";
 
 function getLocale(request: NextRequest): string {
   const cookie = request.cookies.get("NEXT_LOCALE");
-  const localeFromCookie = cookie?.value;
+  const localeFromCookie = cookie?.value as Locale;
 
-  if (localeFromCookie && i18n.locales.includes(localeFromCookie as any)) {
+  if (localeFromCookie && i18n.locales.includes(localeFromCookie)) {
     return localeFromCookie as Locale;
   }
   return i18n.defaultLocale;
@@ -23,12 +23,11 @@ export function middleware(request: NextRequest) {
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
 
-    return NextResponse.redirect(
-      new URL(
-        `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
-        request.url
-      )
-    );
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}${
+      pathname.startsWith("/") ? "" : "/"
+    }${pathname}`;
+    return NextResponse.redirect(url);
   }
 }
 
