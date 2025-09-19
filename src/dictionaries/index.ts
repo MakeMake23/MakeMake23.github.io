@@ -69,6 +69,12 @@ export type Dictionary = {
     follow_on_linkedin: string;
     return_home: string;
   };
+  not_found: {
+    title: string;
+    text_before_url: string;
+    text_after_url: string;
+    report_issue: string;
+  };
   footer: {
     footer_made_with: string;
     footer_in: string;

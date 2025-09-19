@@ -100,6 +100,12 @@
     "follow_on_linkedin": "¡Sígueme en LinkedIn para recibir notificaciones cuando haya nuevas publicaciones!",
     "return_home": "Ir atrás"
   },
+  "not_found": {
+    "title": "Página no encontrada",
+    "text_before_url": "Ups… este enlace se perdió en la blockchain.",
+    "text_after_url": "Volvamos al camino.",
+    "report_issue": "Reportar este enlace 🐞"
+  },
   "footer": {
     "footer_made_with": "Hecho con",
     "footer_in": "en",

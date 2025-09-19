@@ -103,6 +103,12 @@
     "follow_on_linkedin": "Follow me on LinkedIn to get notified when new posts are ready!",
     "return_home": "Go back"
   },
+  "not_found": {
+    "title": "Page not found",
+    "text_before_url": "Oops… this link got lost on the blockchain:",
+    "text_after_url": "Let’s get you back on track.",
+    "report_issue": "Report this link 🐞"
+  },
   "footer": {
     "footer_made_with": "Made with",
     "footer_in": "in",
