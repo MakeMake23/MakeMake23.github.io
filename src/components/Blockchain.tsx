@@ -128,78 +128,56 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
+
   const [maxScroll, setMaxScroll] = useState(0);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
+  const [isAutoScrolling, setIsAutoScrolling] = useState(false);
   const [hasReachedEnd, setHasReachedEnd] = useState(false);
-  const [speedLevel, setSpeedLevel] = useState(1); // Speed level: 1 (slow), 2 (medium), 3 (fast)
-  const scrollStep = 300; // pixels to scroll per button click
-  // Base speed is 2.5 pixels per frame, maintains proper 1x, 2x, 3x relationships
+  const [speedLevel, setSpeedLevel] = useState(1);
+
+  const scrollStep = 300;
   const baseScrollSpeed = 1.5;
-  const autoScrollSpeed = speedLevel * baseScrollSpeed;
 
-  const updateArrowVisibility = useCallback(
-    (position: number, maxScrollValue: number) => {
-      setShowLeftArrow(position > 0);
-      setShowRightArrow(position < maxScrollValue);
-    },
-    []
-  );
+  // --- Callbacks with Correct Dependencies ---
 
-  // Calculate the maximum scroll amount
-  useEffect(() => {
-    const calculateScroll = () => {
-      if (scrollContainerRef.current && contentRef.current) {
-        const containerWidth = scrollContainerRef.current.offsetWidth;
-        const contentWidth = contentRef.current.scrollWidth;
-        const maxScrollValue = contentWidth - containerWidth;
+  const updateArrowVisibility = useCallback(() => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } =
+        scrollContainerRef.current;
+      const currentMaxScroll = scrollWidth - clientWidth;
+      setShowLeftArrow(scrollLeft > 0);
+      setShowRightArrow(scrollLeft < currentMaxScroll);
+    }
+  }, []);
 
-        setMaxScroll(Math.max(0, maxScrollValue));
-        updateArrowVisibility(scrollPosition, maxScrollValue);
-
-        // Debug log
-        console.log("Max scroll calculated:", maxScrollValue);
-      }
-    };
-
-    // Run calculation after a short delay to ensure accurate measurements
-    const timeoutId = setTimeout(calculateScroll, 300);
-    window.addEventListener("resize", calculateScroll);
-
-    return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener("resize", calculateScroll);
-    };
-  }, [scrollPosition, updateArrowVisibility]);
+  // --- User Interaction Handlers ---
 
   const handleScrollButton = (direction: "left" | "right") => {
-    pauseAutoScroll();
-
+    setIsAutoScrolling(false);
     if (scrollContainerRef.current) {
       const newPosition =
         direction === "left"
-          ? Math.max(0, scrollPosition - scrollStep)
-          : Math.min(maxScroll, scrollPosition + scrollStep);
-
+          ? Math.max(0, scrollContainerRef.current.scrollLeft - scrollStep)
+          : Math.min(
+              maxScroll,
+              scrollContainerRef.current.scrollLeft + scrollStep
+            );
       scrollContainerRef.current.scrollTo({
         left: newPosition,
         behavior: "smooth",
       });
-
-      setScrollPosition(newPosition);
-      updateArrowVisibility(newPosition, maxScroll);
     }
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (scrollContainerRef.current) {
-      // Pause auto-scrolling when user starts dragging
-      pauseAutoScroll();
+      setIsAutoScrolling(false);
       setIsDragging(true);
       setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
       setScrollLeft(scrollContainerRef.current.scrollLeft);
@@ -210,207 +188,96 @@ const Blockchain: React.FC<BlockchainProps> = ({ dict }) => {
     if (!isDragging || !scrollContainerRef.current) return;
     e.preventDefault();
     const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll speed multiplier
-    const newPosition = scrollLeft - walk;
-
-    scrollContainerRef.current.scrollLeft = newPosition;
-    setScrollPosition(newPosition);
-    updateArrowVisibility(newPosition, maxScroll);
+    const walk = (x - startX) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
   };
 
   const handleDragEnd = () => {
     setIsDragging(false);
   };
 
-  // Handle scroll events
-  const handleScroll = useCallback(() => {
-    if (scrollContainerRef.current) {
-      const newPosition = scrollContainerRef.current.scrollLeft;
-      setScrollPosition(newPosition);
-      updateArrowVisibility(newPosition, maxScroll);
-    }
-  }, [maxScroll, updateArrowVisibility]);
-
-  const createScrollAnimation = useCallback(
-    (customSpeed?: number) => () => {
-      if (scrollContainerRef.current) {
-        const container = scrollContainerRef.current;
-        const speed = customSpeed !== undefined ? customSpeed : autoScrollSpeed;
-        const newPosition = container.scrollLeft + speed;
-
-        // Stop at the end instead of resetting
-        if (newPosition >= maxScroll) {
-          container.scrollLeft = maxScroll;
-          setScrollPosition(maxScroll);
-          updateArrowVisibility(maxScroll, maxScroll);
-
-          // Stop the animation and mark as reached end
-          if (autoScrollRef.current) {
-            clearInterval(autoScrollRef.current);
-            autoScrollRef.current = null;
-          }
-          setIsAutoScrolling(false);
-          setHasReachedEnd(true);
-        } else {
-          container.scrollLeft = newPosition;
-          setScrollPosition(newPosition);
-          updateArrowVisibility(newPosition, maxScroll);
-        }
-      }
-    },
-    [autoScrollSpeed, maxScroll, updateArrowVisibility]
-  );
-
-  const startAutoScroll = useCallback(() => {
-    // Clear any existing interval first
-    if (autoScrollRef.current) {
-      clearInterval(autoScrollRef.current);
-      autoScrollRef.current = null;
-    }
-
-    // Reset end state and start scrolling
-    setHasReachedEnd(false);
-    setIsAutoScrolling(true);
-
-    // Use setInterval for consistent timing
-    autoScrollRef.current = setInterval(createScrollAnimation(), 30);
-  }, [createScrollAnimation]);
-
-  const pauseAutoScroll = () => {
-    if (autoScrollRef.current) {
-      clearInterval(autoScrollRef.current);
-      autoScrollRef.current = null;
-    }
-    setIsAutoScrolling(false);
-  };
-
   const toggleAutoScroll = () => {
-    if (isAutoScrolling) {
-      pauseAutoScroll();
-    } else {
-      // Resume from current position
-      startAutoScroll();
-    }
+    setIsAutoScrolling((prev) => !prev);
   };
 
   const increaseSpeed = () => {
-    // First stop current animation if running
-    if (isAutoScrolling && !hasReachedEnd && autoScrollRef.current) {
-      clearInterval(autoScrollRef.current);
-      autoScrollRef.current = null;
-    }
-
-    const newSpeedLevel = (speedLevel % 3) + 1;
-    setSpeedLevel(newSpeedLevel);
-
-    // Restart animation with new speed if it was running
-    if (isAutoScrolling && !hasReachedEnd) {
-      // Multiply by baseScrollSpeed to get the actual pixel speed
-      autoScrollRef.current = setInterval(
-        createScrollAnimation(newSpeedLevel * baseScrollSpeed),
-        30
-      );
-    }
+    setSpeedLevel((prev) => (prev % 3) + 1);
   };
 
   const restartAutoScroll = () => {
-    // Reset to beginning
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollLeft = 0;
-      setScrollPosition(0);
-      updateArrowVisibility(0, maxScroll);
-      setHasReachedEnd(false);
-
-      // Start auto-scrolling again after a short delay
-      setTimeout(() => {
-        startAutoScroll();
-      }, 100);
     }
+    setHasReachedEnd(false);
+    setIsAutoScrolling(true);
   };
 
-  // Initial setup to center the first block
+  // --- Effects ---
+
+  // Effect to calculate max scroll and update arrows on resize/scroll
   useEffect(() => {
-    // Only proceed if we have content to scroll and we haven't already reached the end
-    if (
-      maxScroll > 0 &&
-      scrollContainerRef.current &&
-      contentRef.current &&
-      !hasReachedEnd
-    ) {
-      // Only reset to beginning if we haven't reached the end
-      if (!hasReachedEnd) {
-        scrollContainerRef.current.scrollLeft = 0; // Reset to beginning
-
-        // Small delay to ensure DOM is ready before centering
-        setTimeout(() => {
-          if (scrollContainerRef.current && !hasReachedEnd) {
-            scrollContainerRef.current.scrollLeft = 0;
-            setScrollPosition(0);
-            updateArrowVisibility(0, maxScroll);
-          }
-
-          // Start auto-scrolling after a longer delay to give user time to read
-          // Only start if we haven't reached the end
-          if (isAutoScrolling && !autoScrollRef.current && !hasReachedEnd) {
-            const scrollTimeoutId = setTimeout(() => {
-              if (!hasReachedEnd) {
-                // Double-check hasReachedEnd hasn't changed
-                startAutoScroll();
-              }
-            }, 3000); // 3 second delay before starting auto-scroll
-
-            return () => {
-              clearTimeout(scrollTimeoutId);
-            };
-          }
-        }, 100);
+    const calculateAndUpdate = () => {
+      if (scrollContainerRef.current) {
+        const { scrollWidth, clientWidth } = scrollContainerRef.current;
+        const currentMaxScroll = scrollWidth - clientWidth;
+        setMaxScroll(currentMaxScroll);
+        updateArrowVisibility();
       }
-    }
-  }, [
-    maxScroll,
-    hasReachedEnd,
-    startAutoScroll,
-    isAutoScrolling,
-    updateArrowVisibility,
-  ]);
+    };
 
-  // Handle auto-scrolling separately
+    calculateAndUpdate(); // Initial calculation
+
+    const container = scrollContainerRef.current;
+    container?.addEventListener("scroll", calculateAndUpdate);
+    window.addEventListener("resize", calculateAndUpdate);
+
+    return () => {
+      container?.removeEventListener("scroll", calculateAndUpdate);
+      window.removeEventListener("resize", calculateAndUpdate);
+    };
+  }, [updateArrowVisibility]);
+
+  // Effect to manage the auto-scroll lifecycle
   useEffect(() => {
-    // Only start auto-scrolling if we have content to scroll, auto-scrolling is enabled, and we haven't reached the end
-    if (
-      maxScroll > 0 &&
-      isAutoScrolling &&
-      !autoScrollRef.current &&
-      !hasReachedEnd
-    ) {
-      // Start auto-scrolling from current position
-      const timeoutId = setTimeout(() => {
-        startAutoScroll();
-      }, 100);
-
-      return () => {
-        clearTimeout(timeoutId);
-      };
+    // Do not run if dragging or if it has reached the end
+    if (!isAutoScrolling || isDragging || hasReachedEnd) {
+      return;
     }
-  }, [isAutoScrolling, hasReachedEnd, maxScroll, startAutoScroll]);
 
-  // Cleanup on unmount
-  useEffect(() => {
+    autoScrollRef.current = setInterval(() => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } =
+          scrollContainerRef.current;
+        const currentMaxScroll = scrollWidth - clientWidth;
+        const speed = speedLevel * baseScrollSpeed;
+        const newPosition = scrollLeft + speed;
+
+        if (newPosition >= currentMaxScroll) {
+          scrollContainerRef.current.scrollLeft = currentMaxScroll;
+          setHasReachedEnd(true);
+          setIsAutoScrolling(false); // Stop auto-scrolling
+        } else {
+          scrollContainerRef.current.scrollLeft = newPosition;
+        }
+      }
+    }, 30);
+
+    // Cleanup interval on effect change or unmount
     return () => {
       if (autoScrollRef.current) {
         clearInterval(autoScrollRef.current);
-        autoScrollRef.current = null;
       }
     };
-  }, []);
+  }, [isAutoScrolling, isDragging, hasReachedEnd, speedLevel, baseScrollSpeed]);
 
+  // Initial auto-scroll delay
   useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.addEventListener("scroll", handleScroll);
-      return () => container.removeEventListener("scroll", handleScroll);
-    }
-  }, [maxScroll, handleScroll]);
+    const timeoutId = setTimeout(() => {
+      setIsAutoScrolling(true);
+    }, 3000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
   const rawBlocks: BlockProps[] = [
     {
       index: 0,
