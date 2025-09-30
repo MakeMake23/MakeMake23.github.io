@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   experimental: {
     // Turbopack is enabled by default in dev command
   },
+  allowedDevOrigins: ["192.168.1.*", "*.ngrok.app", "*.ngrok-free.app"],
 };
 
 export default nextConfig;
