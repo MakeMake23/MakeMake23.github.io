@@ -33,6 +33,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|profile.png|andy-ledesma-garcia-cv.pdf|andy-ledesma-garcia-cv-es.pdf).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|profile.png|profile-meta-tag.jpg|profile-meta-tag-es.jpg|andy-ledesma-garcia-cv.pdf|andy-ledesma-garcia-cv-es.pdf).*)",
   ],
 };

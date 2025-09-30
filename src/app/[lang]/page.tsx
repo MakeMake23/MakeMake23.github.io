@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import { getDictionary, Locale } from "@/dictionaries";
 import ContactDecorations from "@/components/ContactDecorations";
@@ -15,6 +16,36 @@ import {
   FaTelegramPlane,
   FaWhatsapp,
 } from "react-icons/fa";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as Locale);
+  const title = `${dict.title} | ${dict.subtitle}`;
+  return {
+    title,
+    description: dict.metadata.description,
+    openGraph: {
+      title,
+      description: dict.metadata.description,
+      url: "https://andylg.me",
+      siteName: dict.metadata.siteName,
+      images: [
+        {
+          url: dict.metadata.imageUrl,
+          width: 1200,
+          height: 628,
+          alt: "Andy Ledesma García",
+        },
+      ],
+      locale: lang,
+      type: "website",
+    },
+  };
+}
 
 const IS_AVAILABLE_FOR_WORK =
   process.env.NEXT_PUBLIC_IS_AVAILABLE_FOR_WORK === "true";

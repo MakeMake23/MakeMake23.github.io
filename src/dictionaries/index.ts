@@ -1,6 +1,11 @@
 export type Locale = "en" | "es";
 
 export type Dictionary = {
+  metadata: {
+    description: string;
+    siteName: string;
+    imageUrl: string;
+  };
   title: string;
   subtitle: string;
   navigation: {
