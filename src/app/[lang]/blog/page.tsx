@@ -9,7 +9,7 @@ export async function generateMetadata({
   const resolvedParams = await params;
   const langParam = resolvedParams.lang as string;
   const lang = ["en", "es"].includes(langParam) ? langParam : "en";
-  const dict = await getDictionary(lang as Locale);
+  const dict = getDictionary(lang as Locale);
   return {
     title: `Blog | ${dict.title}`,
     description: `Blog posts by ${dict.title}`,
@@ -23,7 +23,7 @@ export default async function BlogPage({
 }) {
   const resolvedParams = await params;
   const lang = resolvedParams.lang as string;
-  const dict = await getDictionary(lang as Locale);
+  const dict = getDictionary(lang as Locale);
 
   return <BlogContent dict={dict} />;
 }

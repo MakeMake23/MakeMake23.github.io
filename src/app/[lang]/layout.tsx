@@ -11,7 +11,7 @@ export default async function LangLayout({
   params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
-  const dict = await getDictionary(lang);
+  const dict = getDictionary(lang);
   return (
     <div>
       <Header currentLocale={lang} />

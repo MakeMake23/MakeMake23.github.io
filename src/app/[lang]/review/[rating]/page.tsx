@@ -10,7 +10,7 @@ interface ReviewPageProps {
 
 export default async function ReviewPage({ params }: ReviewPageProps) {
   const { lang, rating } = await params;
-  const dict = await getDictionary(lang);
+  const dict = getDictionary(lang);
   const initialRating = parseInt(rating, 10);
 
   return (

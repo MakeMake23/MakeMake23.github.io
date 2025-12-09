@@ -14,7 +14,7 @@ export default async function NotFoundPage({
   const { lang } = await params;
   const { from } = await searchParams;
   const fromUrl = decodeURIComponent(from);
-  const dict = await getDictionary(lang);
+  const dict = getDictionary(lang);
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6 py-16">

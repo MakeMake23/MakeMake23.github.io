@@ -155,6 +155,6 @@ const dictionaries: Record<Locale, Dictionary> = {
   es,
 };
 
-export const getDictionary = async (locale: Locale): Promise<Dictionary> => {
+export const getDictionary = (locale: Locale): Dictionary => {
   return dictionaries[locale];
 };

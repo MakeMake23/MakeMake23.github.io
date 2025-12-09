@@ -6,7 +6,7 @@ export default async function PrivacyPolicyPage({
   params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
-  const dict = await getDictionary(lang);
+  const dict = getDictionary(lang);
   const policy = dict.privacy_policy;
 
   return (

@@ -23,7 +23,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const dict = await getDictionary(lang as Locale);
+  const dict = getDictionary(lang as Locale);
   const title = `${dict.title} | ${dict.subtitle}`;
   return {
     title,
@@ -58,7 +58,7 @@ export default async function Page({
   const resolvedParams = await params;
   const langParam = resolvedParams.lang as string;
   const lang = ["en", "es"].includes(langParam) ? langParam : "en";
-  const dict = await getDictionary(lang as Locale);
+  const dict = getDictionary(lang as Locale);
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">

@@ -26,7 +26,7 @@ const Header = ({ currentLocale }: HeaderProps) => {
 
   useEffect(() => {
     const loadDictionary = async () => {
-      const dictionary = await getDictionary(currentLocale);
+      const dictionary = getDictionary(currentLocale);
       setDict(dictionary);
     };
     loadDictionary();
