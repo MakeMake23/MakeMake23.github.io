@@ -5,16 +5,13 @@ import { Locale, getDictionary } from "@/dictionaries";
 import Link from "next/link";
 import BrandName from "./BrandName";
 import { useEffect, useState } from "react";
-import {
-  FaFileAlt,
-  FaHandPeace,
-  FaStar,
-  FaBlog,
-  FaHome,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
+import HomeNavLink from "./header/HomeNavLink";
+import CvNavLink from "./header/CvNavLink";
+import ContactNavLink from "./header/ContactNavLink";
+import ReviewNavLink from "./header/ReviewNavLink";
+import BlogNavLink from "./header/BlogNavLink";
 
 interface HeaderProps {
   currentLocale: Locale;
@@ -34,71 +31,17 @@ const Header = ({ currentLocale }: HeaderProps) => {
 
   const navLinks = dict && (
     <>
-      <Link href="/" onClick={() => setIsMenuOpen(false)}>
-        <motion.div
-          className="flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 px-4 py-2 transform hover:-translate-y-1"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <FaHome className="text-lg text-blue-500" />
-          <span className="font-medium text-gray-900 dark:text-white">
-            {dict.navigation.home}
-          </span>
-        </motion.div>
-      </Link>
-      <Link
-        href="/cv"
-        target="_blank"
-        rel="noopener noreferrer"
+      <HomeNavLink onClick={() => setIsMenuOpen(false)} lang={currentLocale} />
+      <CvNavLink onClick={() => setIsMenuOpen(false)} lang={currentLocale} />
+      <ContactNavLink
         onClick={() => setIsMenuOpen(false)}
-      >
-        <motion.div
-          className="flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 px-4 py-2 transform hover:-translate-y-1"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <FaFileAlt className="text-lg text-red-500" />
-          <span className="font-medium text-gray-900 dark:text-white">
-            {dict.navigation.cv}
-          </span>
-        </motion.div>
-      </Link>
-      <Link href="/#links" onClick={() => setIsMenuOpen(false)}>
-        <motion.div
-          className="flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 px-4 py-2 transform hover:-translate-y-1"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <FaHandPeace className="text-lg text-green-500" />
-          <span className="font-medium text-gray-900 dark:text-white">
-            {dict.navigation.say_hi}
-          </span>
-        </motion.div>
-      </Link>
-      <Link href="/review/5" onClick={() => setIsMenuOpen(false)}>
-        <motion.div
-          className="flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 px-4 py-2 transform hover:-translate-y-1"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <FaStar className="text-lg text-yellow-500" />
-          <span className="font-medium text-gray-900 dark:text-white">
-            {dict.navigation.reviews}
-          </span>
-        </motion.div>
-      </Link>
-      <Link href="/blog" onClick={() => setIsMenuOpen(false)}>
-        <motion.div
-          className="flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 px-4 py-2 transform hover:-translate-y-1"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <FaBlog className="text-lg text-purple-500" />
-          <span className="font-medium text-gray-900 dark:text-white">
-            {dict.navigation.blog}
-          </span>
-        </motion.div>
-      </Link>
+        lang={currentLocale}
+      />
+      <ReviewNavLink
+        onClick={() => setIsMenuOpen(false)}
+        lang={currentLocale}
+      />
+      <BlogNavLink onClick={() => setIsMenuOpen(false)} lang={currentLocale} />
     </>
   );
 
