@@ -103,7 +103,16 @@
     "description": "Estoy trabajando en contenido emocionante para mi blog. Manténte atento para una variedad de artículos que cubren mis intereses, experiencias y perspectivas.",
     "expected_launch": "Lanzamiento previsto: Octubre 2025",
     "follow_on_linkedin": "¡Sígueme en LinkedIn para recibir notificaciones cuando haya nuevas publicaciones!",
-    "return_home": "Ir atrás"
+    "return_home": "Ir atrás",
+    "posts": {
+      "back_to_blog_home": "Ver todos los artículos",
+      "not_ai_generated_warning": {
+        "before_no_generated": "El contenido de este blog",
+        "no_generated": "NO fue generado por IA",
+        "after_no_generated": "Usted va a ser sometido a una dosis inusual de naturalidad.",
+        "ps": "PD: Simplemente me gusta escribir ;)"
+      },
+    }
   },
   "not_found": {
     "title": "Página no encontrada",

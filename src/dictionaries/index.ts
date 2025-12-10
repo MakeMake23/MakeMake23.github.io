@@ -73,6 +73,15 @@ export type Dictionary = {
     expected_launch: string;
     follow_on_linkedin: string;
     return_home: string;
+    posts: {
+      back_to_blog_home: string;
+      not_ai_generated_warning: {
+        before_no_generated: string;
+        no_generated: string;
+        after_no_generated: string;
+        ps: string;
+      };
+    };
   };
   not_found: {
     title: string;
