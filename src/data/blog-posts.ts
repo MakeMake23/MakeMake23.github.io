@@ -1,5 +1,6 @@
 import { ComponentType } from "react";
 import { Locale } from "@/dictionaries";
+import HelloWorldPost from "@/content/blog/000-hello-world";
 
 export interface BlogPost {
   id: number;
@@ -21,7 +22,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-10-16",
     author: "Andy Ledesma García",
     tags: ["introduction", "welcome"],
-    component: require("@/content/blog/000-hello-world").default,
+    component: HelloWorldPost,
   },
 ];
 
