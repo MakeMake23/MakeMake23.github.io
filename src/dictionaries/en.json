@@ -115,6 +115,33 @@
         "after_no_generated": "You are about to be subjected to an unusual dose of naturalness.",
         "ps": "PS: I just like to write ;)"
       },
+      "hello_world": {
+        "title": "Hello World!",
+        "excerpt": "Welcome to my first blog post!",
+        "genesis": {
+          "header": "Genesis",
+          "first_hello_world": {
+            "before_hello_world": "This was my first",
+            "after_hello_world": "almost 10 years ago"
+          },
+          "past_welcome": "It was the welcome given to me by",
+          "today_hello_world": {
+            "before_hello_world": "Today I say",
+            "after_hello_world": "again, but this time from my blog. It is the welcome I give to you."
+          },
+          "hello_world": "Hello World!",
+          "me_and_my_blog": "I'm Andy Ledesma García, and if you noticed my face in the top left corner, you might have realized this blog is hosted on my personal website. I created it less than two months ago to promote my professional profile, though in the long run, it will cover more areas of my life."
+        },
+        "my_promise": {
+          "header": "My Promise",
+          "text": "You can expect useful content from me, worthy of the time you spend reading it (except maybe this article XD... I just like saying hi). My goal isn't to become famous or have thousands of people visiting this site (though if it happens, I won't be mad haha). That's why, and because other lands claim the attention of my modest efforts, I won't be posting content regularly, but you can be sure that if I decide to upload something, it's because I believe it will be useful to you."
+        },
+        "thousand_thanks": {
+          "header": "1k Thanks",
+          "no_promotion": "A thousand thanks for reading my content. I won't be promoting this welcome page on any of my social networks, so if you're reading this, it's because curiosity and interest brought you here, and that makes me very happy.",
+          "very_much": "Thank you very much!"
+        }
+      }
     }
   },
   "not_found": {
@@ -197,6 +224,12 @@
     "contact": {
       "title": "Contact Me",
       "content": "If you have any questions about this Privacy Policy, feel free to <a href='/#links' class='text-blue-500 hover:underline'>reach out</a>. Thank you for your trust and for taking the time to leave a review!"
+    }
+  },
+  "components": {
+    "warning": {
+      "title": "Warning",
+      "click_to_expand": "(click to expand)"
     }
   }
 }

@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+pre {
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+code {
+  font-feature-settings: "calt" 1; /* nicer ligatures if your font supports them */
+}

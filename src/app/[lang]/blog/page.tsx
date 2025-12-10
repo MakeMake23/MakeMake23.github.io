@@ -21,8 +21,7 @@ export default async function BlogPage({
 }: {
   params: Promise<{ lang: string }>;
 }) {
-  const resolvedParams = await params;
-  const lang = resolvedParams.lang as string;
+  const { lang } = await params;
   const dict = getDictionary(lang as Locale);
 
   return <BlogContent dict={dict} />;

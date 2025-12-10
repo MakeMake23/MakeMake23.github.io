@@ -81,6 +81,33 @@ export type Dictionary = {
         after_no_generated: string;
         ps: string;
       };
+      hello_world: {
+        title: string;
+        excerpt: string;
+        genesis: {
+          header: string;
+          first_hello_world: {
+            before_hello_world: string;
+            after_hello_world: string;
+          };
+          past_welcome: string;
+          today_hello_world: {
+            before_hello_world: string;
+            after_hello_world: string;
+          };
+          hello_world: string;
+          me_and_my_blog: string;
+        };
+        my_promise: {
+          header: string;
+          text: string;
+        };
+        thousand_thanks: {
+          header: string;
+          no_promotion: string;
+          very_much: string;
+        };
+      };
     };
   };
   not_found: {
@@ -129,6 +156,12 @@ export type Dictionary = {
     switch: string;
   };
   quote: string;
+  components: {
+    warning: {
+      title: string;
+      click_to_expand: string;
+    };
+  };
   privacy_policy: {
     title: string;
     last_updated: string;

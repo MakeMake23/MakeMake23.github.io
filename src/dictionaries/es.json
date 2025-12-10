@@ -112,6 +112,33 @@
         "after_no_generated": "Usted va a ser sometido a una dosis inusual de naturalidad.",
         "ps": "PD: Simplemente me gusta escribir ;)"
       },
+      "hello_world": {
+        "title": "¡Hola Mundo!",
+        "excerpt": "¡Bienvenido a mi primer post!",
+        "genesis": {
+          "header": "Génesis",
+          "first_hello_world": {
+            "before_hello_world": "Este fue mi primer",
+            "after_hello_world": "hace casi 10 años atrás"
+          },
+          "past_welcome": "Era la bienvenida que me daba",
+          "today_hello_world": {
+            "before_hello_world": "Hoy digo",
+            "after_hello_world": "de nuevo, pero esta vez desde mi blog. Es la bienvenida que yo te doy."
+          },
+          "hello_world": "¡Hola Mundo!",
+          "me_and_my_blog": "Soy Andy Ledesma García y si notaste mi cara en la esquina superior izquierda te habrás dado cuenta que este blog se encuentra en mi sitio web personal. Lo creé hace menos de dos meses para promover mi perfil profesional, aunque a largo plazo abarcará más áreas de mi vida."
+        },
+        "my_promise": {
+          "header": "Mi Promesa",
+          "text": "Puedes esperar de mí contenido útil, merecedor del tiempo que dedicas a leerlo (excepto quizás este artículo XD... es que me gusta saludar). Mi objetivo no es volverme famoso ni que miles de personas visiten este sitio (aunque si pasa no me pongo bravo jaja). Es por eso, y porque otras tierras reclaman el convite de mis modestos esfuerzos, que no subiré contenido con regularidad, pero puedes estar convencido que si me decido a subir algo es porque creo que te va a ser útil."
+        },
+        "thousand_thanks": {
+          "header": "1k Gracias",
+          "no_promotion": "Mil gracias por leer mi contenido. No voy a promover esta página de bienvenida en ninguna de mis redes sociales, así que si estás leyendo esto es porque la curiosidad y el interés te trajeron, y eso me hace muy feliz.",
+          "very_much": "¡Muchas gracias!"
+        }
+      }
     }
   },
   "not_found": {
@@ -194,6 +221,12 @@
     "contact": {
       "title": "Contáctame",
       "content": "Si tienes alguna pregunta sobre esta Política de Privacidad, no dudes en <a href='/#links' class='text-blue-500 hover:underline'>contactarme</a>. ¡Gracias por tu confianza y por tomarte el tiempo para dejar una reseña!"
+    }
+  },
+  "components": {
+    "warning": {
+      "title": "Advertencia",
+      "click_to_expand": "(clic para expandir)"
     }
   }
 }
