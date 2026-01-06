@@ -97,11 +97,7 @@
     }
   },
   "blog": {
-    "title": "Blog",
-    "under_construction": "En Construcción",
-    "coming_soon": "¡Próximamente!",
-    "description": "Estoy trabajando en contenido emocionante para mi blog. Manténte atento para una variedad de artículos que cubren mis intereses, experiencias y perspectivas.",
-    "expected_launch": "Lanzamiento previsto: Octubre 2025",
+    "description": "Aquí encontrarás contenido útil proveniente de mi experiencia como Desarrollador de Software 🧑‍💻 y amante de la Ciencia de la Computación 🤓",
     "follow_on_linkedin": "¡Sígueme en LinkedIn para recibir notificaciones cuando haya nuevas publicaciones!",
     "return_home": "Ir atrás",
     "posts": {

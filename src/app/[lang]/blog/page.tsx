@@ -1,5 +1,5 @@
 import { Locale, getDictionary } from "@/dictionaries";
-import BlogContent from "@/components/BlogContent";
+import BlogHome from "@/components/blog/BlogHome";
 
 export async function generateMetadata({
   params,
@@ -24,5 +24,5 @@ export default async function BlogPage({
   const { lang } = await params;
   const dict = getDictionary(lang as Locale);
 
-  return <BlogContent dict={dict} />;
+  return <BlogHome dict={dict} />;
 }

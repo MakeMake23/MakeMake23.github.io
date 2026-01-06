@@ -1,6 +1,7 @@
 import { ComponentType } from "react";
 import { Locale } from "@/dictionaries";
 import HelloWorldPost from "@/content/blog/000-hello-world";
+import meWaving from "@/assets/images/me-waving.gif";
 
 export interface BlogPost {
   id: number;
@@ -9,6 +10,7 @@ export interface BlogPost {
   excerptKey: string;
   date: string;
   author: string;
+  image?: any;
   tags?: string[];
   component: ComponentType<{ lang: Locale }>;
 }
@@ -21,6 +23,7 @@ export const blogPosts: BlogPost[] = [
     excerptKey: "blog.posts.hello_world.excerpt",
     date: "2024-10-16",
     author: "Andy Ledesma García",
+    image: meWaving,
     tags: ["introduction", "welcome"],
     component: HelloWorldPost,
   },

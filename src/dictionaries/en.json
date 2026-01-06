@@ -100,11 +100,7 @@
     }
   },
   "blog": {
-    "title": "Blog",
-    "under_construction": "Under Construction",
-    "coming_soon": "Coming soon!",
-    "description": "I'm working on some exciting content for my blog. Stay tuned for a variety of articles covering my interests, experiences, and insights.",
-    "expected_launch": "Expected launch: October 2025",
+    "description": "Here you'll find useful content based on my experience as a Software Developer 🧑‍💻 and Computer Science enthusiast 🤓",
     "follow_on_linkedin": "Follow me on LinkedIn to get notified when new posts are ready!",
     "return_home": "Go back",
     "posts": {
