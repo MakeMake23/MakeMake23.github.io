@@ -2,11 +2,7 @@ import { Locale, getDictionary } from "@/dictionaries";
 import { getBlogPostBySlug, getBlogPostById } from "@/data/blog-posts";
 import { notFound, redirect } from "next/navigation";
 import BlogPostContent from "@/components/blog/BlogPostContent";
-
-// Helper function to get nested property from object using dot notation
-function getNestedProperty(obj: any, path: string): any {
-  return path.split(".").reduce((current, key) => current?.[key], obj);
-}
+import { getNestedProperty } from "@/utils";
 
 export async function generateMetadata({
   params,
