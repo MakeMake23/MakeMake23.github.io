@@ -36,7 +36,7 @@ export default function BlogPostCard({ post, dict }: BlogPostCardProps) {
             </span>
           </div>
 
-          <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow line-clamp-3">
+          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
             {getNestedProperty(dict, post.excerptKey)}
           </p>
 
