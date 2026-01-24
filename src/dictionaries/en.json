@@ -137,6 +137,10 @@
           "no_promotion": "A thousand thanks for reading my content. I won't be promoting this welcome page on any of my social networks, so if you're reading this, it's because curiosity and interest brought you here, and that makes me very happy.",
           "very_much": "Thank you very much!"
         }
+      },
+      "no_more_scams": {
+        "title": "NO MORE SCAMS!",
+        "excerpt": "I'll tell you how I avoided being scammed more than 20 TIMES on LinkedIn, Telegram, and other platforms."
       }
     }
   },

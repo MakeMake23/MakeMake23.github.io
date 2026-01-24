@@ -2,6 +2,8 @@ import { ComponentType } from "react";
 import { Locale } from "@/dictionaries";
 import HelloWorldPost from "@/content/blog/000-hello-world";
 import meWaving from "@/assets/images/me-waving.gif";
+import NoMoreScamsPost from "@/content/blog/001-no-more-scams";
+import meVsScammer from "@/assets/images/me-vs-scammer.gif";
 
 export interface BlogPost {
   id: number;
@@ -26,6 +28,17 @@ export const blogPosts: BlogPost[] = [
     image: meWaving,
     tags: ["introduction", "welcome"],
     component: HelloWorldPost,
+  },
+  {
+    id: 1,
+    slug: "no-more-scams",
+    titleKey: "blog.posts.no_more_scams.title",
+    excerptKey: "blog.posts.no_more_scams.excerpt",
+    date: "2025-01-06",
+    author: "Andy Ledesma García",
+    image: meVsScammer,
+    tags: ["job-hunting", "security", "privacy", "scams", "tips"],
+    component: NoMoreScamsPost,
   },
 ];
 

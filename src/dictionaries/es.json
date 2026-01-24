@@ -134,6 +134,10 @@
           "no_promotion": "Mil gracias por leer mi contenido. No voy a promover esta página de bienvenida en ninguna de mis redes sociales, así que si estás leyendo esto es porque la curiosidad y el interés te trajeron, y eso me hace muy feliz.",
           "very_much": "¡Muchas gracias!"
         }
+      },
+      "no_more_scams": {
+        "title": "¡NO MÁS ESTAFAS!",
+        "excerpt": "Te diré cómo evité ser estafado más de 20 VECES en LinkedIn, Telegram y otras plataformas."
       }
     }
   },

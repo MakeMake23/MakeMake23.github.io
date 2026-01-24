@@ -104,6 +104,10 @@ export type Dictionary = {
           very_much: string;
         };
       };
+      no_more_scams: {
+        title: string;
+        excerpt: string;
+      };
     };
   };
   not_found: {
